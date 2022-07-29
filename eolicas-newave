@@ -22,33 +22,20 @@ Help() {
 
 RUN_DADOS() {
     ARQCONF=$1
-    INSTALLDIR=$INSTALLDIR/dados
-    RUN=$INSTALLDIR/main/execucao_completa.r
-    export INSTALLDIR=$INSTALLDIR
-    Rscript $RUN $*
+    eolicas-newave-dados "$ARQCONF"
 }
 
 RUN_DECK() {
     DECK=$1
-    INSTALLDIR=$INSTALLDIR/deck
-    RUN=$INSTALLDIR/main.py
-    python3 $RUN $*
+    eolicas-newave-deck "$DECK"
 }
 
 RUN_FULL() {
     ARQCONF=$1
     DECK=$2
 
-    INSTALLDIR_DADOS=$INSTALLDIR/dados
-    INSTALLDIR_DECK=$INSTALLDIR/deck
-
-    RUN_DADOS=$INSTALLDIR_DADOS/main/execucao_completa.r
-    RUN_DECK=$INSTALLDIR_DECK/main.py
-
-    export INSTALLDIR=$INSTALLDIR_DADOS
-
-    Rscript $RUN_DADOS $*
-    python3 $RUN_DECK $*
+    eolicas-newave-dados "$ARQCONF"
+    eolicas-newave-deck geradeck "$DECK"
 }
 
 # Execucao -----------------------------------------------------------------------------------------
