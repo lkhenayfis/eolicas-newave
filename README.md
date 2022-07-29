@@ -82,7 +82,13 @@ Um conjunto de dados teste para execução do aplicativo pode ser obtido [aqui](
 Desconpactando o zip *test_data.zip* e salvando o deck base no diretório *home*, a execução completa do aplicativo é realizada simplesmente através do comando
 
 ```sh
-~$ eolicas-newave full -d=deck_newave_base.zip
+~$ eolicas-newave deck_newave_base.zip
+```
+
+Caso o usuário deseje passar um arquivo de configuração para a parte de dados
+
+```sh
+~$ eolicas-newave arquivo_conf deck_newave_base.zip
 ```
 
 Informações detalhadas a respeito deste arquivo de configuração e uso de cada parte do aplicativo
