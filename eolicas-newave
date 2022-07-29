@@ -6,36 +6,13 @@ Help() {
     # Mostra o help
    echo "Programa para execucao do aplicativo eolicas-newave."
    echo
-   echo "Uso: eolicas-newave comando [-h] [-a=arquivo_conf_dados.jsonc] [-d=deck_newave.zip]"
+   echo "Uso: eolicas-newave [arq_conf] deck"
    echo ""
-   echo "comandos:"
-   echo "    dados        executa a clisterizacao, estimacao de ftm e adicao de usinas"
-   echo "    deck         manipula um deck de newave com as informacoes de eolicas pertinentes"
-   echo "    full         executa as duas partes concatenadas"
+   echo "argumentos:"
    echo ""
-   echo "opcoes:"
-   echo "    a     caminho ate um arquivo de configuracao para a parte -dados do aplicativo"
-   echo "    d     caminho ate um deck compactado para manipular"
-   echo "    h     Imprime esta pagina de ajuda"
+   echo "    arq_conf: opcional, indicando um arquivo de configuracao .json para parte de dados"
+   echo "    dec     : obrigatorio, indicando um deck de newave zipado para manipular"
    echo ""
-}
-
-RUN_DADOS() {
-    ARQCONF=$1
-    eolicas-newave-dados "$ARQCONF"
-}
-
-RUN_DECK() {
-    DECK=$1
-    eolicas-newave-deck "$DECK"
-}
-
-RUN_FULL() {
-    ARQCONF=$1
-    DECK=$2
-
-    eolicas-newave-dados "$ARQCONF"
-    eolicas-newave-deck geradeck "$DECK"
 }
 
 # Execucao -----------------------------------------------------------------------------------------
@@ -46,33 +23,29 @@ DATE="29/07/2022"
 USERINSTALLDIR=/usr/lib
 INSTALLDIR=${USERINSTALLDIR}/eolicas-newave
 
-while getopts "a:d:" arg; do
-    case "${arg}" in
-        a) ARQCONF=${OPTARG}
-        ;;
-        d) DECK=${OPTARG}
-        ;;
-    esac
-done
+if [ $# -eq 2 ]; then
+    echo ""
+    echo "eolicas-newave"
+    echo "Gerência de Metodologias e Modelos Energéticos - PEM / ONS"
+    echo "Versão ${VERSION} - ${DATE}"
+    echo ""
 
-if [ "$1" == "dados" ]; then
-    RUN_DADOS ARQCONF
-elif [ "$1" == "deck" ]; then
-    RUN_DECK DECK
-elif [ "$1" == "full" ]; then
-    RUN_FULL ARQCONF DECK
+    echo eolicas-newave-dados $1
+    echo eolicas-newave-deck geradeck $2
+
+elif [ $# -eq 1 ]; then
+    echo ""
+    echo "eolicas-newave"
+    echo "Gerência de Metodologias e Modelos Energéticos - PEM / ONS"
+    echo "Versão ${VERSION} - ${DATE}"
+    echo ""
+
+    echo eolicas-newave-deck geradeck $1
 else
+    echo "ERRO: forneca pelo menos um arquivo de deck compactado"
     echo ""
-    echo "ERRO: nenhum comando fornecido"
-    echo ""
-    echo "----------------------------------------"
+    echo "------------------------------------------------------"
     echo ""
     Help
     exit 1
 fi
-
-echo ""
-echo "eolicas-newave"
-echo "Gerência de Metodologias e Modelos Energéticos - PEM / ONS"
-echo "Versão ${VERSION} - ${DATE}"
-echo ""
