@@ -2,3 +2,7 @@
 	path = eolicas-newave-dados
 	url = https://github.com/lkhenayfis/eolicas-newave-dados.git
 	branch = master
+[submodule "eolicas-newave-deck"]
+	path = eolicas-newave-deck
+	url = https://github.com/rjmalves/eolicas-newave-deck.git
+	branch = main
