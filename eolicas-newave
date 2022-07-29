@@ -30,8 +30,8 @@ if [ $# -eq 2 ]; then
     echo "Versão ${VERSION} - ${DATE}"
     echo ""
 
-    echo eolicas-newave-dados $1
-    echo eolicas-newave-deck geradeck $2
+    eolicas-newave-dados $1
+    eolicas-newave-deck geradeck $2
 
 elif [ $# -eq 1 ]; then
     echo ""
@@ -40,7 +40,8 @@ elif [ $# -eq 1 ]; then
     echo "Versão ${VERSION} - ${DATE}"
     echo ""
 
-    echo eolicas-newave-deck geradeck $1
+    eolicas-newave-dados
+    eolicas-newave-deck geradeck $1
 else
     echo "ERRO: forneca pelo menos um arquivo de deck compactado"
     echo ""
