@@ -1,4 +1,7 @@
 #! /bin/bash
 
-source ./eolicas-newave-dados/uninstall.sh
-source ./eolicas-newave-deck/uninstall.sh
+cd eolicas-newave-dados
+source ./uninstall.sh
+
+cd ../eolicas-newave-deck
+source ./uninstall.sh
