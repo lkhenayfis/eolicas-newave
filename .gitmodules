@@ -1,0 +1,4 @@
+[submodule "eolicas-newave-dados"]
+	path = eolicas-newave-dados
+	url = https://github.com/lkhenayfis/eolicas-newave-dados.git
+	branch = master
