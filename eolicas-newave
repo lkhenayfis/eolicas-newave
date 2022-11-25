@@ -17,8 +17,8 @@ Help() {
 
 # Execucao -----------------------------------------------------------------------------------------
 
-VERSION="1.0.2"
-DATE="12/08/2022"
+VERSION="1.1.0"
+DATE="25/11/2022"
 
 USERINSTALLDIR=/usr/lib
 INSTALLDIR=${USERINSTALLDIR}/eolicas-newave
