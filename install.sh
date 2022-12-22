@@ -2,6 +2,8 @@
 
 CURDIR=$(pwd)
 
+source ./configure
+
 cd eolicas-newave-dados
 source ./install.sh
 
@@ -10,11 +12,10 @@ source ./install.sh
 
 cd ..
 
-# Copies the executable to a folder in the system's PATH
-EXECPATH=/usr/bin/eolicas-newave
 echo "Copiando executável para ${EXECPATH}"
+EXECPATH=/usr/bin/eolicas-newave
 cp eolicas-newave $EXECPATH
+sed -i "s;fillinstalldir;${USERINSTALLDIR};" $EXECPATH
 
-# Deactivates venv
 echo "Finalizando instalação..."
 cd $CURDIR

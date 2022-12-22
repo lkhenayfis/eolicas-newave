@@ -11,7 +11,7 @@ Help() {
    echo "argumentos:"
    echo ""
    echo "    arq_conf: opcional, indicando um arquivo de configuracao .json para parte de dados"
-   echo "    dec     : obrigatorio, indicando um deck de newave zipado para manipular"
+   echo "    deck    : obrigatorio, indicando um deck de newave zipado para manipular"
    echo ""
 }
 
@@ -20,7 +20,7 @@ Help() {
 VERSION="1.1.0"
 DATE="25/11/2022"
 
-USERINSTALLDIR=/usr/lib
+USERINSTALLDIR=fillinstalldir
 INSTALLDIR=${USERINSTALLDIR}/eolicas-newave
 
 if [ $# -eq 2 ]; then
